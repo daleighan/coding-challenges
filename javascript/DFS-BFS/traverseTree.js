@@ -69,6 +69,6 @@ t = {
   }
 };
 
-it('should perform a BFS', function() {
-  assert.deepEqual(traverseTree(t), [1, 2, 4, 3, 5]);
-});
+//it('should perform a BFS', function() {
+//  assert.deepEqual(traverseTree(t), [1, 2, 4, 3, 5]);
+//});
