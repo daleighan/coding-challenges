@@ -32,8 +32,21 @@ output => [1,2,4,3,5]
 */
 
 
-var traverseTree = function(t) {
-// your code here  
+const traverseTree = function(t) {
+  let ret = [];
+  let queue = [t];
+
+  while (queue.length) {
+    current = queue.shift();
+    ret.push(current.value);
+    if (current.left) {
+      queue.push(current.left);
+    }
+    if (current.right) {
+      queue.push(current.right);
+    }
+  }
+  return ret;
 };
 
 
@@ -69,6 +82,6 @@ t = {
   }
 };
 
-//it('should perform a BFS', function() {
-//  assert.deepEqual(traverseTree(t), [1, 2, 4, 3, 5]);
-//});
+it('should perform a BFS', function() {
+  assert.deepEqual(traverseTree(t), [1, 2, 4, 3, 5]);
+});
