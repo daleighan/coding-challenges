@@ -1,3 +1,6 @@
+const chai = require('chai');
+const assert = chai.assert;
+
 // Definition for binary tree:
 // function Tree(x) {
 //   this.value = x;
@@ -5,7 +8,9 @@
 //   this.right = null;
 // }
 // 
-// For the following tree:
+// Perform a breadth-first traversal on a binary tree without using recursion.
+//
+// Ex: for the following tree:
 // 
 //     1
 //   /   \
@@ -14,15 +19,30 @@
 //    3 5
 // 
 // output => [1,2,4,3,5]
-// 
-// 
-var traverseTree = function(t) {
 
-  let queue = [];
+const traverseTree = function(t) {
+
+  const queue = [];
+  const results = [];
+
+  let currentNode = t;
   
+  while (currentNode) {
+    if (currentNode.left) {
+      queue.push(currentNode.left);
+    }
+    if (currentNode.right) {
+      queue.push(currentNode.right);
+    }
+    results.push(currentNode.value);
+    currentNode = queue.shift();
+  }
+
+  return results;
+
 };
 
-
+// tests
 t = {
   'value': 1,
   'left': {
@@ -44,3 +64,7 @@ t = {
     'right': null
   }
 };
+
+it('should perform a BFS', function() {
+  assert.deepEqual(traverseTree(t), [1, 2, 4, 3, 5]);
+});

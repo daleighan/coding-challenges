@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/thismax/coding-challenges/issues"
   },
-  "homepage": "https://github.com/thismax/coding-challenges#readme"
+  "homepage": "https://github.com/thismax/coding-challenges#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
+  }
 }
